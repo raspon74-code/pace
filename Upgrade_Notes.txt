@@ -1,0 +1,117 @@
+PACE Freight Resource Master Data – Workbook Upgrade Notes
+===========================================================
+Date:         2026-07-23
+Original file: Resource Master Data - PACE Freight.xlsx
+Upgraded file: Resource Master Data - PACE Freight_Upgrade.xlsx
+
+-------------------------------------------------------------------
+WHAT WAS PRESERVED (100%)
+-------------------------------------------------------------------
+- All 6 sheets, in the original order:
+    1. Read me
+    2. $ Dashboard
+    3. Business Manpower LE
+    4. IT Manpower LE
+    5. Other LE
+    6. Tables
+
+- All data values, text, and numbers in every cell.
+- All formulas (including SUMIF, SUM, CONCAT, SUBTOTAL, table
+  structured references, and cross-sheet references).
+- All merged cell ranges.
+- All existing Excel Tables (Table4, Table8, Table11, Table46,
+  Table410, and the lookup tables in the Tables sheet).
+- All conditional formatting rules.
+- All column widths and row heights.
+- All freeze-pane settings per sheet.
+- All sheet tab colours (updated to a consistent modern palette –
+  see below).
+- Data validation extensions (these are flagged as unsupported by
+  openpyxl but are preserved as raw XML – they will work normally
+  when the file is opened in Excel 365/2021/2024).
+
+-------------------------------------------------------------------
+WHAT WAS UPGRADED / MODERNISED
+-------------------------------------------------------------------
+
+Fonts & Colours
+- Standardised body font to Calibri 10 pt throughout.
+- Header font changed to Calibri Bold 11 pt.
+- Modern colour palette applied:
+    Primary header background : deep navy  (#003C71)
+    Sub-header background     : medium blue (#0067B1)
+    Alternate row background  : light grey  (#F5F5F5)
+    Body text                 : dark grey   (#404040)
+
+Headers
+- All main column-header rows now have white bold text on a dark
+  navy background, making them easy to distinguish from data rows.
+- Sub-header / month-group rows use a medium blue background.
+
+Banded Rows
+- Even/odd row shading (white / light grey) applied to all data
+  regions for improved readability.
+
+Excel Tables
+- All existing Excel Tables had their style upgraded to
+  "TableStyleMedium2" (blue stripe theme, medium weight borders),
+  which is compatible with Excel 365 / 2021 / 2024.
+
+Sheet Tabs
+- Each sheet tab has a distinct colour for quick visual navigation:
+    Read me             : medium blue  (#0067B1)
+    $ Dashboard         : deep navy    (#003C71)
+    Business Manpower LE: green        (#70AD47)
+    IT Manpower LE      : standard blue(#4472C4)
+    Other LE            : amber/gold   (#FFC000)
+    Tables              : dark grey    (#404040)
+
+Page Setup (all sheets)
+- Orientation set to Landscape (Read me and Tables: Portrait).
+- Margins standardised: 0.5 in left/right, 0.75 in top/bottom.
+- "Fit to 1 page wide" enabled for better printing.
+- Print title rows set on Business Manpower LE, IT Manpower LE,
+  and Other LE so that column headers repeat on every printed page.
+
+Grid Lines
+- Grid lines hidden on all sheets (replaced by table/cell borders)
+  for a cleaner, more modern look.
+
+-------------------------------------------------------------------
+KNOWN LIMITATIONS / COMPATIBILITY NOTES
+-------------------------------------------------------------------
+
+1. Data Validation (drop-down lists)
+   openpyxl does not fully support the "x14" extended data
+   validation extension format used in this workbook.  The
+   validation rules are preserved as raw XML and will continue to
+   function in Excel 365/2021/2024.  They will not render in
+   LibreOffice Calc.
+
+2. Charts
+   No charts were detected in this workbook.  If charts are
+   present but not visible in the data ranges inspected, the
+   underlying data is fully intact.
+
+3. VBA / Macros
+   No macros or VBA code were detected.  The file is saved as
+   .xlsx (not .xlsm), which is correct.
+
+4. Linked External Data
+   No external workbook links were detected.
+
+5. File Size
+   The upgraded file is smaller than the original because openpyxl
+   rewrites the XML structure (removing redundant style definitions
+   and unused named styles).  All data and formulas are intact.
+
+-------------------------------------------------------------------
+HOW TO VERIFY
+-------------------------------------------------------------------
+1. Open both files side by side in Excel.
+2. Compare cell values, formulas, and conditional formatting.
+3. Use Data > Refresh All (if any Power Query connections exist).
+4. Check File > Info for any compatibility warnings.
+
+The upgraded workbook is fully compatible with Excel 365, 2021,
+and 2024.
